@@ -1,0 +1,30 @@
+import express from "express";
+import dotenv from "dotenv";
+import colors from "colors";
+
+import connectDB from "./database/db.js";
+import portfolioRoutes from "./portfolio/portfolio.routes.js";
+
+dotenv.config();
+
+const app = express();
+app.use("/api/portfolio", portfolioRoutes);
+
+connectDB();
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Portfolio CMS API Running",
+  });
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(
+    `Server running on port ${PORT}`.yellow.bold
+  );
+});
