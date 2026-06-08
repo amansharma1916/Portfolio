@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./LandingPage.css";
 import profileImage from "../../assets/images/profile.png";
 
-const LandingPage = () => {
+const LandingPage = ({ heroData }) => {
   return (
     <section className="hero">
       <div className="container hero__container">
@@ -15,38 +15,37 @@ const LandingPage = () => {
         </div>
 
         <div className="hero__content">
-          <p className="hero__intro">Hi, my name is</p>
+          <p className="hero__intro">{heroData.introText}</p>
 
           <h1 className="hero__name">
-            AMAN
-            <br />
-            SHARMA.
+            {heroData.firstName} {heroData.lastName}
           </h1>
 
           <h2 className="hero__title">
-            Full Stack Developer &
-            <br />
-            Computer Science Student
+            {(heroData.title || "").split("&").map((part, index, arr) => (
+              <span key={index} className="hero__title-part">
+                {part.trim()}
+                {index < arr.length - 1 && " &"}
+              </span>
+            ))}
           </h2>
 
           <p className="hero__description">
-            I build scalable web applications, AI-powered systems,
-            geospatial platforms, and modern digital experiences using
-            technologies that solve real-world problems.
+            {heroData.description}
           </p>
 
           <div className="hero__actions">
-            <NavLink to="/projects" className="hero__btn">
-              View Work
+            <NavLink to={heroData.buttons[0].link} className="hero__btn">
+              {heroData.buttons[0].label}
             </NavLink>
 
             <a
-              href="/resume.pdf"
+              href={heroData.buttons[1].link}
               target="_blank"
               rel="noopener noreferrer"
               className="hero__btn"
             >
-              Resume
+              {heroData.buttons[1].label}
             </a>
           </div>
         </div>

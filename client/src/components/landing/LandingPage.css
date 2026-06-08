@@ -6,16 +6,24 @@
 }
 
 .hero__container {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  display: flex;
   align-items: center;
-  gap: 6rem;
+  justify-content: space-between;
+  width: 100%;
+  gap: 2rem;
 }
 
 .hero__image-wrapper {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hero__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero__image {
@@ -36,29 +44,32 @@
   );
 }
 
-.hero__content {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .hero__intro {
-  color: var(--accent-color);
-  font-size: 1rem;
+  color: var(--logo-color);
+  font-size: 2.5rem;
   margin-bottom: 1rem;
 }
 
 .hero__name {
   font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 700;
+  width: 100%;
   line-height: 0.9;
   margin-bottom: 1.5rem;
-  color: var(--text-color);
+  color: var(--hero-name-color);
 }
 
 .hero__title {
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 500;
   margin-bottom: 2rem;
-  color: var(--text-color);
+  color: var(--hero-name-color);
+}
+
+.hero__title-part {
+  display: block;
 }
 
 .hero__description {

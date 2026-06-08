@@ -4,7 +4,7 @@ import useTheme from "../../hooks/useTheme";
 import ThemeToggle from "./toggle/ThemeToggle";
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ( {navbarData}) => {
 
   const { theme, toggleTheme } = useTheme();
 
@@ -12,7 +12,7 @@ const Navbar = () => {
     <header className="navbar">
       <div className="container navbar__container">
         <NavLink to="/" className="navbar__logo">
-          AMAN SHARMA
+          {navbarData.logoText}
         </NavLink>
 
         <nav className="navbar__links">

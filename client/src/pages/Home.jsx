@@ -32,9 +32,9 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await getPortfolioData();
-                console.log("Fetched portfolio data:", data);
-                setPortfolioData(data);
+                const res = await getPortfolioData();
+                console.log("Fetched portfolio data:", res.data);
+                setPortfolioData(res.data);
             } catch (error) {
                 console.error("Error fetching portfolio data:", error);
             }
@@ -45,8 +45,12 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
-      <LandingPage />
+      <Navbar 
+      navbarData={portfolioData.navbar}
+      />
+      <LandingPage 
+      heroData={portfolioData.hero}
+      />
     </>
   );
 };
