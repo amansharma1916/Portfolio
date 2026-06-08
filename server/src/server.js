@@ -1,13 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
-
+import cors from "cors";
 import connectDB from "./database/db.js";
 import portfolioRoutes from "./portfolio/portfolio.routes.js";
 
 dotenv.config();
 
 const app = express();
+app.use(express.json());
+app.use(cors(
+  {origin: process.env.CLIENT_URL },
+));
 app.use("/api/portfolio", portfolioRoutes);
 
 connectDB();
