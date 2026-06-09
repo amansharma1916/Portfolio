@@ -1,3 +1,4 @@
+import { useEffect, useState , useRef} from "react";
 import { NavLink } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 import useTheme from "../../hooks/useTheme";
@@ -7,6 +8,21 @@ import "./Navbar.css";
 const Navbar = ( {navbarData}) => {
 
   const { theme, toggleTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
 
   return (
     <header className="navbar">
@@ -15,7 +31,7 @@ const Navbar = ( {navbarData}) => {
           {navbarData.logoText}
         </NavLink>
 
-        <nav className="navbar__links">
+        <nav className={`navbar__links ${isMenuOpen ? "active" : ""}`}>
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -59,6 +75,16 @@ const Navbar = ( {navbarData}) => {
             />
           </div>
         </nav>
+
+        <button
+          className="hamburger"
+          ref={menuRef}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         
       </div>
     </header>
