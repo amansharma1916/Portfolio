@@ -5,6 +5,7 @@ import cors from "cors";
 import connectDB from "./database/db.js";
 import portfolioRoutes from "./portfolio/portfolio.routes.js";
 import experienceRoutes from "./experience/experience.routes.js";
+import authRoutes from "./admin/auth.routes.js";
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ app.use(cors(
 ));
 app.use("/api/portfolio", portfolioRoutes);
 app.use("/api/experience", experienceRoutes);
-
+app.use("/api/admin", authRoutes);
 connectDB();
 
 app.use(express.json());
