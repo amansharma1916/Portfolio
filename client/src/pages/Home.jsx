@@ -2,7 +2,9 @@ import {useEffect, useState} from "react";
 import Navbar from "../components/navbar/Navbar";
 import LandingPage from "../components/landing/LandingPage";
 import SideBar from "../components/landing/SideBar";
+import Experience from "../components/experience/Experience";
 import { getPortfolioData } from "../services/portfolio.service";
+import { getExperiences, getExperienceById } from "../services/experience.service";
 
 
 const Home = () => {
@@ -35,6 +37,79 @@ const Home = () => {
   }
 });
 
+    const [experiences, setExperiences] = useState([{
+            displayOrder: 1,
+            company: "Wyreflow Technologies",
+            role: "Frontend Team Lead",
+            startDate: "Apr 2026",
+            endDate: "Jun 2026",
+            description:
+                "Led frontend development for client-facing applications and collaborated closely with backend teams to deliver scalable solutions.",
+
+            achievements: [
+                "Built reusable micro frontend components",
+                "Integrated payment systems",
+                "Implemented OAuth authentication",
+                "Designed role-based access control",
+                "Worked with CI/CD pipelines",
+            ],
+
+            technologies: [
+                "React",
+                "TypeScript",
+                "Node.js",
+                "Tailwind",
+                "OAuth",
+                "Amanzon S3",
+            ],
+        },
+
+        {
+            displayOrder: 2,
+            company: "Bluestock Fintech",
+            role: "Full Stack Developer Intern",
+            startDate: "Jan 2025",
+            endDate: "Apr 2025",
+            description:
+                "Worked on fintech applications, backend APIs, and frontend integrations.",
+
+            achievements: [
+                "Developed REST APIs",
+                "Integrated frontend and backend systems",
+                "Improved application performance",
+            ],
+
+            technologies: [
+                "React",
+                "Node.js",
+                "MongoDB",
+                "Express",
+            ],
+        },
+
+        {
+            displayOrder: 3,
+            company: "Indux Technology",
+            role: "Software Development Intern",
+            startDate: "Jun 2024",
+            endDate: "Aug 2024",
+            description:
+                "Contributed to client-facing projects and learned production development workflows.",
+
+            achievements: [
+                "Developed UI components",
+                "Collaborated with senior developers",
+                "Delivered client requirements",
+            ],
+
+            technologies: [
+                "JavaScript",
+                "React",
+                "Express",
+            ],
+        }]);
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -49,6 +124,20 @@ const Home = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+      const fetchExperiences = async () => {
+          try {
+              const res = await getExperiences();
+              console.log("Fetched experiences:", res.data);
+              setExperiences(res.data);
+          } catch (error) {
+              console.error("Error fetching experiences:", error);
+          }
+      };
+
+      fetchExperiences();
+  }, []);
+
   return (
     <>
       <Navbar 
@@ -60,6 +149,7 @@ const Home = () => {
       <SideBar 
       sidebarData={portfolioData.sidebar}
       />
+      <Experience experiences={experiences} />
     </>
   );
 };
