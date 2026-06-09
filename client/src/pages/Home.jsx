@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import Navbar from "../components/navbar/Navbar";
 import LandingPage from "../components/landing/LandingPage";
+import SideBar from "../components/landing/SideBar";
 import { getPortfolioData } from "../services/portfolio.service";
 
 
@@ -8,6 +9,11 @@ const Home = () => {
     const [portfolioData, setPortfolioData] = useState({
   "navbar": {
     "logoText": "AMAN"
+  },
+  "sidebar": {
+    "github": "https://github.com/amansharma1916/",
+    "linkedin": "https://www.linkedin.com/in/amansharma1916/",
+    "leetcode": "https://leetcode.com/u/amansharma1916/"
   },
   "hero": {
     "introText": "Hi, my name is",
@@ -50,6 +56,9 @@ const Home = () => {
       />
       <LandingPage 
       heroData={portfolioData.hero}
+      />
+      <SideBar 
+      sidebarData={portfolioData.sidebar}
       />
     </>
   );

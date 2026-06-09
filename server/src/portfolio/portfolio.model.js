@@ -26,6 +26,24 @@ const portfolioSchema = new mongoose.Schema(
       },
     },
 
+    sidebar: {
+      github: {
+        type: String,
+        default: "",
+        trim: true,
+      },
+      linkedin: {
+        type: String,
+        default: "",
+        trim: true,
+      },
+      leetcode: {
+        type: String,
+        default: "",
+        trim: true,
+      },
+    },
+
     hero: {
       introText: {
         type: String,
