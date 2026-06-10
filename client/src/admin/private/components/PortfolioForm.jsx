@@ -122,6 +122,8 @@ const PortfolioForm = () => {
       },
     };
 
+    console.log("Submitting payload:", payload);
+
     try {
       await updatePortfolioData(payload);
 

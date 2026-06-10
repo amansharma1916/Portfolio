@@ -8,6 +8,6 @@ import {
 const router = express.Router();
 
 router.get("/", getPortfolio);
-router.put("/", updatePortfolio, protect);
+router.put("/", protect, updatePortfolio);
 
 export default router;
