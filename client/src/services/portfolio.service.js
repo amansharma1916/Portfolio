@@ -5,3 +5,9 @@ export const getPortfolioData = async () => {
 
   return response.data;
 };
+
+export const updatePortfolioData = async (data) => {
+  const response = await apiClient.put("/portfolio", data);
+
+  return response.data;
+};

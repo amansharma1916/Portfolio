@@ -1,4 +1,5 @@
 import express from "express";
+import protect from "../middle/auth.middleware.js";
 import {
   getPortfolio,
   updatePortfolio,
@@ -7,6 +8,6 @@ import {
 const router = express.Router();
 
 router.get("/", getPortfolio);
-router.put("/", updatePortfolio);
+router.put("/", updatePortfolio, protect);
 
 export default router;

@@ -1,5 +1,6 @@
 import Portfolio from "./portfolio.model.js";
 
+
 export const getPortfolio = async (req, res) => {
   try {
     const portfolio = await Portfolio.findOne();

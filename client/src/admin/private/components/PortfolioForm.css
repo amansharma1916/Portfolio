@@ -1,0 +1,137 @@
+.admin-card {
+  background: #151515;
+  border: 1px solid #242424;
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.admin-card__header {
+  margin-bottom: 2rem;
+}
+
+.admin-card__header h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.admin-card__header p {
+  color: #8a8a8a;
+  font-size: 0.95rem;
+}
+
+.portfolio-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.form-group label {
+  color: #d1d1d1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Inputs */
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: #1b1b1b;
+  border: 1px solid #2c2c2c;
+  border-radius: 12px;
+  padding: 0.95rem 1rem;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #666;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #ffffff;
+  background: #202020;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+/* Save Button */
+
+.save-btn {
+  align-self: flex-start;
+  margin-top: 1rem;
+
+  background: #ffffff;
+  color: #111111;
+
+  border: none;
+  border-radius: 12px;
+
+  padding: 0.95rem 1.75rem;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.save-btn:active {
+  transform: translateY(0);
+}
+
+/* Optional Section Divider */
+
+.section-title {
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #242424;
+
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .admin-card {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .save-btn {
+    width: 100%;
+  }
+}

@@ -1,9 +1,9 @@
-import LoginPage from "./public/LoginPage"
-const Admin = () => {
-  return (
-    <LoginPage />
-  )
-  
-}
+import Dashboard from "./private/Dashboard";
+import LoginPage from "./public/LoginPage";
 
-export default Admin
+const Admin = () => {
+
+  return <LoginPage />;
+};
+
+export default Admin;

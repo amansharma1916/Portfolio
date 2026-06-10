@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: #ffffff;
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+
+.dashboard .sidebar {
+  width: 260px;
+  background: #151515;
+  border-right: 1px solid #242424;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-header {
+  padding: 2rem;
+  border-bottom: 1px solid #242424;
+}
+
+.sidebar-header h1 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.sidebar-nav {
+  padding: 1rem;
+}
+
+.sidebar-btn {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #8f8f8f;
+  text-align: left;
+  padding: 0.95rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.sidebar-btn:hover {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+
+.sidebar-btn.active {
+  background: #ffffff;
+  color: #111111;
+  font-weight: 600;
+}
+
+/* ===========================
+   Content
+=========================== */
+
+.content {
+  flex: 1;
+  padding: 3rem;
+  overflow-y: auto;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   Form Section
+=========================== */
+
+.admin-section {
+  background: #151515;
+  border: 1px solid #242424;
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.admin-section h2 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.admin-section p {
+  color: #8f8f8f;
+  margin-bottom: 2rem;
+}
+
+/* ===========================
+   Inputs
+=========================== */
+
+input,
+textarea,
+select {
+  width: 100%;
+  background: #1b1b1b;
+  border: 1px solid #2b2b2b;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #666666;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #ffffff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.primary-btn {
+  background: #ffffff;
+  color: #111111;
+  border: none;
+  border-radius: 12px;
+  padding: 0.9rem 1.4rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid #2b2b2b;
+  border-radius: 12px;
+  padding: 0.9rem 1.4rem;
+  cursor: pointer;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 10px;
+}

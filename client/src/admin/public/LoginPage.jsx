@@ -1,5 +1,6 @@
 import "./LoginPage.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { login } from "../../services/auth.service";
 
 const LoginPage = () => {
@@ -16,7 +17,7 @@ const LoginPage = () => {
             [e.target.name]: e.target.value,
         });
     };
-
+    const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -26,8 +27,9 @@ const LoginPage = () => {
             .then((data) => {
                 console.log("Login successful:", data);
                 setMessage("Login successful!");
-                localStorage.setItem("adminToken", data.token);
-                localStorage.setItem("adminInfo", JSON.stringify(data.admin));
+                sessionStorage.setItem("adminToken", data.token);
+                sessionStorage.setItem("adminInfo", JSON.stringify(data.admin));
+                navigate("/admin/dashboard");
             })
             .catch((error) => {
                 console.error("Login failed:", error);
