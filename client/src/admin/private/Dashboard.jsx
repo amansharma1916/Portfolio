@@ -1,0 +1,56 @@
+import { useState } from "react";
+import PortfolioForm from "./components/PortfolioForm";
+import ExperienceForm from "./components/ExperienceForm";
+import "./Dashboard.css";
+const menuItems = [
+  {
+    id: "portfolio",
+    label: "Portfolio",
+    component: PortfolioForm,
+  },
+  {
+    id: "experience",
+    label: "Experience",
+    component: ExperienceForm,
+  },
+];
+
+const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState(menuItems[0].id);
+
+  const ActiveComponent =
+    menuItems.find((item) => item.id === activeTab)?.component ||
+    PortfolioForm;
+
+  return (
+  <div className="dashboard">
+  <aside className="sidebar">
+    <div className="sidebar-header">
+      <h1>Portfolio CMS</h1>
+    </div>
+
+    <nav className="sidebar-nav">
+      {menuItems.map((item) => (
+        <button
+          key={item.id}
+          onClick={() => setActiveTab(item.id)}
+          className={`sidebar-btn ${
+            activeTab === item.id ? "active" : ""
+          }`}
+        >
+          {item.label}
+        </button>
+      ))}
+    </nav>
+  </aside>
+
+  <main className="content">
+    <div className="content-wrapper">
+      <ActiveComponent />
+    </div>
+  </main>
+</div>
+);
+};
+
+export default Dashboard;

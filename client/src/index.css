@@ -10,15 +10,16 @@
 
 
 :root {
-  --bg-color: #f8f8f8;
+  --bg-color: #fbfbfd;
   --toggle-track: #d1d5db;
   --toggle-knob: #ffffff;
   --text-color: #111111;
+  --hero-name-color: #111111;
   --logo-color: #3b87df;
   --secondary-text: #666666;
   --accent-color: #3b82f6;
   --border-color: #e5e5e5;
-
+  --font-family: "IBM Plex Mono", monospace;
   --container-width: 1280px;
 
   --transition: 0.25s ease;
@@ -29,6 +30,7 @@
   --toggle-track: #4b5563;
   --toggle-knob: #ffffff;
   --text-color: #c47820;
+  --hero-name-color: #ffffff;
   --logo-color: #c47820;
   --secondary-text: #b5b5b5;
   --accent-color: #60a5fa;
