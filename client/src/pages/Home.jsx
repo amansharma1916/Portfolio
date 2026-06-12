@@ -3,6 +3,7 @@ import Navbar from "../components/navbar/Navbar";
 import LandingPage from "../components/landing/LandingPage";
 import SideBar from "../components/landing/SideBar";
 import Experience from "../components/experience/Experience";
+import Projects from "../components/projects/Projects";
 import { getPortfolioData } from "../services/portfolio.service";
 import { getExperiences, getExperienceById } from "../services/experience.service";
 
@@ -150,6 +151,7 @@ const Home = () => {
       sidebarData={portfolioData.sidebar}
       />
       <Experience experiences={experiences} />
+        <Projects />
     </>
   );
 };

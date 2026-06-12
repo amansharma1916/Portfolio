@@ -21,8 +21,11 @@
   --border-color: #e5e5e5;
   --font-family: "IBM Plex Mono", monospace;
   --container-width: 1280px;
-
+  --pn-label:#3b87df;
   --transition: 0.25s ease;
+  --pn-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 18px 36px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 [data-theme="dark"] {
@@ -35,6 +38,10 @@
   --secondary-text: #b5b5b5;
   --accent-color: #60a5fa;
   --border-color: #23262d;
+  --pn-label:#ffffff;
+  --pn-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 18px 36px rgba(255, 255, 255, 0.34),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
 
