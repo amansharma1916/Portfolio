@@ -122,6 +122,11 @@
   box-shadow: 0 0 0 1px #f59e0b, 0 0 22px #f59e0b;
 }
 
+.project-node__dot--featured {
+  background: #f59e0b;
+  box-shadow: 0 0 0 1px #f59e0b, 0 0 22px #f59e0b;
+}
+
 .project-node--featured .project-node__label {
   color: #d97706;
 }
@@ -158,6 +163,10 @@
   background: color-mix(in srgb, var(--bg-color) 95%, transparent);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(18px);
+}
+
+.project-card-mobile {
+  display: none;
 }
 
 .project-card--right {
@@ -225,16 +234,78 @@
   }
 
   .project-field {
-    min-height: 680px;
-    margin-block: 2rem 8rem;
+    display: none;
   }
 
-  .project-card {
-    position: fixed;
-    inset: auto 4vw 1rem;
-    z-index: 30;
-    width: auto;
-    transform: none;
+  .project-card-mobile {
+    display: block;
+    margin-top: 2rem;
+  }
+
+  .project-mobile-item {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .project-mobile-item:first-child {
+    border-top: 1px solid var(--border-color);
+  }
+
+  .project-mobile-item__trigger {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    padding: 1.15rem 0.25rem;
+    color: var(--hero-name-color);
+    text-align: right;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .project-mobile-item__trigger strong,
+  .project-mobile-item__trigger small {
+    display: block;
+  }
+
+  .project-mobile-item__trigger strong {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+  }
+
+  .project-mobile-item__trigger small {
+    margin-top: 0.18rem;
+    color: var(--secondary-text);
+    font-size: 0.62rem;
+  }
+
+  .project-mobile-item__icon {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    transition: transform 0.25s ease;
+  }
+
+  .project-mobile-item.is-active .project-mobile-item__icon {
+    transform: rotate(45deg);
+  }
+
+  .project-mobile-item__details {
+    overflow: hidden;
+  }
+
+  .project-mobile-item__details > p {
+    padding: 0.25rem 0.25rem 0;
+    font-size: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .project-mobile-item__details .project-card__tags,
+  .project-mobile-item__details .project-card__links {
+    padding-inline: 0.25rem;
+  }
+
+  .project-mobile-item__details .project-card__links {
+    padding-bottom: 1.25rem;
   }
 
   .project-node-position--shift-left,

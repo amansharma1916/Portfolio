@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PortfolioForm from "./components/PortfolioForm";
 import ExperienceForm from "./components/ExperienceForm";
+import ProjectForm from "./components/ProjectForm";
 import "./Dashboard.css";
 const menuItems = [
   {
@@ -12,6 +13,11 @@ const menuItems = [
     id: "experience",
     label: "Experience",
     component: ExperienceForm,
+  },
+  {
+    id: "projects",
+    label: "Projects",
+    component: ProjectForm,
   },
 ];
 
