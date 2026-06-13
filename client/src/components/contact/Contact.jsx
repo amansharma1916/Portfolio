@@ -26,7 +26,7 @@ const Contact = () => {
       e.target.reset();
     } catch (error) {
       console.error(error);
-      setAlertMessage("Error sending message. Please try again later.");
+      setAlertMessage(error.response.data.message);
     }
     setShowAlert(true);
   };
