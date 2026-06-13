@@ -16,10 +16,30 @@ export const sendMessage = async (req, res) => {
 
 export const getMessages = async (req, res) => {
     try {
-        const messages = await Contact.find().sort({ createdAt: -1 });
-        res.status(200).json(messages);
+        const page = Number(req.query.page) || 1;
+        const limit = Number(req.query.limit) || 10;
+
+        const skip = (page - 1) * limit;
+
+        const totalMessages = await Contact.countDocuments();
+
+        const messages = await Contact.find()
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit);
+
+        res.status(200).json({
+            currentPage: page,
+            totalPages: Math.ceil(totalMessages / limit),
+            totalMessages,
+            hasNextPage: page * limit < totalMessages,
+            hasPrevPage: page > 1,
+            data: messages,
+        });
     } catch (error) {
-        res.status(500).json({ message: 'Error retrieving messages' });
+        res.status(500).json({
+            message: "Error retrieving messages",
+        });
     }
 };
 

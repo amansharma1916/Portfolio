@@ -10,24 +10,33 @@ const previewMessage = (message = "") =>
 
 const Contact = () => {
   const [messages, setMessages] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalMessages, setTotalMessages] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [expandedId, setExpandedId] = useState(null);
 
-  useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const data = await getContactMessages();
-        setMessages(Array.isArray(data) ? data : []);
-      } catch (err) {
-        console.error("Error fetching contact messages:", err);
-        setError("Could not load contact messages.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchMessages = async (page = 1) => {
+    setLoading(true);
+    setError("");
 
-    fetchMessages();
+    try {
+      const res = await getContactMessages({ page, limit: 10 });
+      setMessages(Array.isArray(res.data) ? res.data : []);
+      setCurrentPage(res.currentPage || page);
+      setTotalPages(res.totalPages || 1);
+      setTotalMessages(res.totalMessages || 0);
+    } catch (err) {
+      console.error("Error fetching contact messages:", err);
+      setError("Could not load contact messages.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchMessages(1);
   }, []);
 
   const handleDelete = async (id) => {
@@ -41,6 +50,7 @@ const Contact = () => {
       if (expandedId === id) {
         setExpandedId(null);
       }
+      setTotalMessages((current) => Math.max(0, current - 1));
     } catch (err) {
       console.error("Error deleting contact message:", err);
       setError("Could not delete the message.");
@@ -68,7 +78,7 @@ const Contact = () => {
           <h2>Contact</h2>
           <p>Review and manage messages sent from the website contact form.</p>
         </div>
-        <span className="contact-count">{messages.length} messages</span>
+        <span className="contact-count">{totalMessages} messages</span>
       </div>
 
       {error && <p className="contact-error">{error}</p>}
@@ -115,6 +125,31 @@ const Contact = () => {
           })}
         </div>
       )}
+
+      <div className="contact-pagination">
+        <button
+          type="button"
+          className="action-btn"
+          onClick={() => fetchMessages(currentPage - 1)}
+          disabled={currentPage <= 1 || loading}
+        >
+          ← Prev
+        </button>
+
+        <span className="contact-page-indicator">
+          Page {currentPage} of {totalPages}
+        </span>
+
+        <button
+          type="button"
+          className="action-btn"
+          onClick={() => fetchMessages(currentPage + 1)}
+          disabled={currentPage >= totalPages || loading}
+        >
+          Next →
+        </button>
+      </div>
+
     </section>
   );
 };

@@ -6,8 +6,8 @@ export const sendContactMessage = async (contactData) => {
     return response.data;
 }
 
-export const getContactMessages = async () => {
-    const response = await apiClient.get("/contact/messages");
+export const getContactMessages = async (params) => {
+    const response = await apiClient.get("/contact/messages", { params });
 
     return response.data;
 }
