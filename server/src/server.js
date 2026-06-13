@@ -6,6 +6,7 @@ import connectDB from "./database/db.js";
 import portfolioRoutes from "./portfolio/portfolio.routes.js";
 import experienceRoutes from "./experience/experience.routes.js";
 import projectRoutes from "./projects/projects.routes.js";
+import contactRoutes from "./contact/contact.routes.js";
 import authRoutes from "./admin/auth.routes.js";
 
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(cors(
 app.use("/api/portfolio", portfolioRoutes);
 app.use("/api/experience", experienceRoutes);
 app.use("/api/projects", projectRoutes);
+app.use("/api/contact", contactRoutes);
 app.use("/api/admin", authRoutes);
 connectDB();
 

@@ -4,6 +4,7 @@ import LandingPage from "../components/landing/LandingPage";
 import SideBar from "../components/landing/SideBar";
 import Experience from "../components/experience/Experience";
 import Projects from "../components/projects/Projects";
+import Contact from "../components/contact/Contact";
 import { getPortfolioData } from "../services/portfolio.service";
 import { getExperiences, getExperienceById } from "../services/experience.service";
 
@@ -152,6 +153,8 @@ const Home = () => {
       />
       <Experience experiences={experiences} />
         <Projects />
+
+        <Contact />
     </>
   );
 };

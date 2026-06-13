@@ -2,6 +2,7 @@ import { useState } from "react";
 import PortfolioForm from "./components/PortfolioForm";
 import ExperienceForm from "./components/ExperienceForm";
 import ProjectForm from "./components/ProjectForm";
+import Contact from "./components/Contact";
 import "./Dashboard.css";
 const menuItems = [
   {
@@ -19,6 +20,11 @@ const menuItems = [
     label: "Projects",
     component: ProjectForm,
   },
+  {
+    id: "contact",
+    label: "Contact",
+    component: Contact,
+  },
 ];
 
 const Dashboard = () => {
@@ -32,7 +38,7 @@ const Dashboard = () => {
   <div className="dashboard">
   <aside className="sidebar">
     <div className="sidebar-header">
-      <h1>Portfolio CMS</h1>
+      <h1>CMS - Admin</h1>
     </div>
 
     <nav className="sidebar-nav">
