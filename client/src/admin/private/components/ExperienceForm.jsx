@@ -152,11 +152,7 @@ const ExperienceForm = () => {
           .filter(Boolean),
     };
 
-    console.log(
-      "Updating:",
-      editingId,
-      payload
-    );
+    
 
     await updateExperience(editingId, payload)
     setExperiences((prev) =>

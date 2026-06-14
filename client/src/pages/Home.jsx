@@ -116,7 +116,7 @@ const Home = () => {
         const fetchData = async () => {
             try {
                 const res = await getPortfolioData();
-                console.log("Fetched portfolio data:", res.data);
+                
                 setPortfolioData(res.data);
             } catch (error) {
                 console.error("Error fetching portfolio data:", error);
@@ -130,7 +130,7 @@ const Home = () => {
       const fetchExperiences = async () => {
           try {
               const res = await getExperiences();
-              console.log("Fetched experiences:", res.data);
+              
               setExperiences(res.data);
           } catch (error) {
               console.error("Error fetching experiences:", error);

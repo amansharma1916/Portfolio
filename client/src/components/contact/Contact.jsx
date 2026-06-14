@@ -21,7 +21,7 @@ const Contact = () => {
 
     try {
       await sendContactMessage(contactData);
-      console.log(contactData);
+      
       setAlertMessage("Message sent successfully!");
       e.target.reset();
     } catch (error) {

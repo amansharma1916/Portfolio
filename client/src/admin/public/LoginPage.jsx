@@ -21,11 +21,11 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(formData);
+      
 
         login(formData.email, formData.password)
             .then((data) => {
-                console.log("Login successful:", data);
+                
                 setMessage("Login successful!");
                 sessionStorage.setItem("adminToken", data.token);
                 sessionStorage.setItem("adminInfo", JSON.stringify(data.admin));

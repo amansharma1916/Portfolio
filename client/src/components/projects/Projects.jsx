@@ -55,7 +55,7 @@ const Projects = () => {
         const fetchProjects = async () => {
             try {
                 const projectsData = await getProjects();
-                console.log("Fetched projects:", projectsData);
+              
                 setProjects(Array.isArray(projectsData) ? projectsData : []);
             } catch (error) {
                 console.error("Error fetching projects:", error);
