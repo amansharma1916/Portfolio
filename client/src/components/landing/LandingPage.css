@@ -87,6 +87,8 @@
 .hero__btn {
   padding: 0.9rem 1.8rem;
   border: 1px solid var(--text-color);
+  background: transparent;
+  cursor: pointer;
   color: var(--text-color);
   transition: var(--transition);
 }

@@ -43,7 +43,15 @@ const Navbar = ( {navbarData}) => {
 
 
           <NavLink
-            to="/"
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("projects")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+            }}
             className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"
             }
@@ -52,7 +60,15 @@ const Navbar = ( {navbarData}) => {
           </NavLink>
 
           <NavLink
-            to="/"
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("experience")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+            }}
             className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"
             }
@@ -61,7 +77,15 @@ const Navbar = ( {navbarData}) => {
           </NavLink>
 
           <NavLink
-            to="/"
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+            }}
             className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"
             }

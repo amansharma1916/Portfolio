@@ -31,7 +31,7 @@ const Experience = ({ experiences }) => {
     };
 
     return (
-        <section className="experience section">
+        <section className="experience section" id="experience">
             <div className="container">
                 <div className="experience__header">
                     <h2 className="experience__title">
