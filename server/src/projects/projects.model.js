@@ -61,7 +61,6 @@ const projectSchema = new mongoose.Schema(
   }
 );
 
-// Auto Increment ID
 projectSchema.pre("validate", async function () {
   if (!this.isNew || this.id != null) return;
 

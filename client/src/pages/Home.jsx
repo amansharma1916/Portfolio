@@ -1,15 +1,18 @@
-import {useEffect, useState} from "react";
+import { useCallback, useEffect, useState } from "react";
 import Navbar from "../components/navbar/Navbar";
 import LandingPage from "../components/landing/LandingPage";
 import SideBar from "../components/landing/SideBar";
 import Experience from "../components/experience/Experience";
 import Projects from "../components/projects/Projects";
 import Contact from "../components/contact/Contact";
+import IntroJourney from "../components/intro/IntroJourney";
 import { getPortfolioData } from "../services/portfolio.service";
-import { getExperiences, getExperienceById } from "../services/experience.service";
+import { getExperiences } from "../services/experience.service";
 
 
 const Home = () => {
+    const [showIntro, setShowIntro] = useState(true);
+    const completeIntro = useCallback(() => setShowIntro(false), []);
     const [portfolioData, setPortfolioData] = useState({
   "navbar": {
     "logoText": "AMAN"
@@ -142,6 +145,7 @@ const Home = () => {
 
   return (
     <>
+      {showIntro && <IntroJourney onComplete={completeIntro} />}
       <Navbar 
       navbarData={portfolioData.navbar}
       />
