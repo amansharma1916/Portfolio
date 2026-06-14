@@ -31,8 +31,12 @@ const ProjectCard = ({ project, side }) => (
             ))}
         </div>
         <div className="project-card__links">
-            <a href={project.github}>GitHub <span aria-hidden="true">↗</span></a>
-            <a href={project.liveDemo}>Live demo <span aria-hidden="true">↗</span></a>
+            <a href={project.github} rel="noopener noreferrer" target="_blank">
+                GitHub <span aria-hidden="true">↗</span>
+            </a>
+            <a href={project.liveDemo} rel="noopener noreferrer" target="_blank">
+                Live demo <span aria-hidden="true">↗</span>
+            </a>
         </div>
     </motion.article>
 );
